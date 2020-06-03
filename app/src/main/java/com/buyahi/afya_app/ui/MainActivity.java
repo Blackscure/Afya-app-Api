@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.moringaschool.myrestaurants.R;
+import com.buyahi.afya_app.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String location = mLocationEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
             intent.putExtra("location", location);
-            startActivity(intent);
             Toast.makeText(MainActivity.this, location, Toast.LENGTH_LONG).show();
+            startActivity(intent);
         }
     }
 

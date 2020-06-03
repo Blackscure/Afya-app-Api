@@ -1,6 +1,6 @@
 package com.buyahi.afya_app.network;
 
-import com.moringaschool.myrestaurants.network.YelpApi;
+import com.buyahi.afya_app.network.YelpApi;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.moringaschool.myrestaurants.Constants.YELP_API_KEY;
-import static com.moringaschool.myrestaurants.Constants.YELP_BASE_URL;
+import static com.buyahi.afya_app.Constants.YELP_API_KEY;
+import static com.buyahi.afya_app.Constants.YELP_BASE_URL;
 
 public class YelpClient {
     private static Retrofit retrofit = null;

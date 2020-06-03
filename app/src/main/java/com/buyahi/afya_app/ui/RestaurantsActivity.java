@@ -4,26 +4,19 @@ package com.buyahi.afya_app.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.buyahi.afya_app.adapters.RestaurantListAdapter;
-import com.moringaschool.myrestaurants.Business;
-import com.moringaschool.myrestaurants.Category;
-import com.moringaschool.myrestaurants.MyRestaurantsArrayAdapter;
-import com.moringaschool.myrestaurants.R;
-import com.moringaschool.myrestaurants.adapters.RestaurantListAdapter;
-import com.moringaschool.myrestaurants.network.YelpApi;
-import com.moringaschool.myrestaurants.YelpBusinessesSearchResponse;
-import com.moringaschool.myrestaurants.network.YelpClient;
+import com.buyahi.afya_app.Business;
+import com.buyahi.afya_app.R;
+import com.buyahi.afya_app.network.YelpApi;
+import com.buyahi.afya_app.YelpBusinessesSerchResponse;
+import com.buyahi.afya_app.network.YelpClient;
 
 import java.util.List;
 
@@ -56,11 +49,11 @@ public class RestaurantsActivity extends AppCompatActivity {
 
         YelpApi client = YelpClient.getClient();
 
-        Call<YelpBusinessesSearchResponse> call = client.getRestaurants(location, "gym");
+        Call<YelpBusinessesSerchResponse> call = client.getRestaurants(location, "gym");
 
-        call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
+        call.enqueue(new Callback<YelpBusinessesSerchResponse>() {
             @Override
-            public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
+            public void onResponse(Call<YelpBusinessesSerchResponse> call, Response<YelpBusinessesSerchResponse> response) {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
@@ -79,7 +72,7 @@ public class RestaurantsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<YelpBusinessesSearchResponse> call, Throwable t) {
+            public void onFailure(Call<YelpBusinessesSerchResponse> call, Throwable t) {
                 hideProgressBar();
                 showFailureMessage();
             }
