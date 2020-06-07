@@ -3,6 +3,7 @@ package com.buyahi.afya_app.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -11,11 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.buyahi.afya_app.adapters.RestaurantListAdapter;
+
 import com.buyahi.afya_app.Business;
 import com.buyahi.afya_app.R;
+import com.buyahi.afya_app.YelpBusinessesSearchResponse;
+import com.buyahi.afya_app.adapters.RestaurantListAdapter;
 import com.buyahi.afya_app.network.YelpApi;
-import com.buyahi.afya_app.YelpBusinessesSerchResponse;
 import com.buyahi.afya_app.network.YelpClient;
 
 import java.util.List;
@@ -26,8 +28,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RestaurantsActivity extends AppCompatActivity {
-    private static final String TAG = RestaurantsActivity.class.getSimpleName();
+
+public class RestaurantListActivity extends AppCompatActivity {
+    private static final String TAG = RestaurantListActivity.class.getSimpleName();
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
@@ -43,25 +46,24 @@ public class RestaurantsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurants);
         ButterKnife.bind(this);
 
-
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
         YelpApi client = YelpClient.getClient();
 
-        Call<YelpBusinessesSerchResponse> call = client.getRestaurants(location, "gym");
+        Call<YelpBusinessesSearchResponse> call = client.getRestaurants(location, "restaurants");
 
-        call.enqueue(new Callback<YelpBusinessesSerchResponse>() {
+        call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
             @Override
-            public void onResponse(Call<YelpBusinessesSerchResponse> call, Response<YelpBusinessesSerchResponse> response) {
+            public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    restaurants = response.body().getBusinesses();
-                    mAdapter = new RestaurantListAdapter(RestaurantsActivity.this, restaurants);
+                    Log.d(TAG,"message");
+                    restaurants = response.body().getBusinesses() ;
+                    mAdapter = new RestaurantListAdapter(RestaurantListActivity.this, restaurants);
                     mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager =
-                            new LinearLayoutManager(RestaurantsActivity.this);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RestaurantListActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 
@@ -72,7 +74,7 @@ public class RestaurantsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<YelpBusinessesSerchResponse> call, Throwable t) {
+            public void onFailure(Call<YelpBusinessesSearchResponse> call, Throwable t) {
                 hideProgressBar();
                 showFailureMessage();
             }

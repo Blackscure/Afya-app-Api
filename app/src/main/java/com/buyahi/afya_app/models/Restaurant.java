@@ -1,6 +1,11 @@
 package com.buyahi.afya_app.models;
 
+import com.buyahi.afya_app.Location;
+
+
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class Restaurant {
     private String mName;
@@ -8,10 +13,10 @@ public class Restaurant {
     private String mWebsite;
     private double mRating;
     private String mImageUrl;
-    private ArrayList<String> mAddress = new ArrayList<>();
+    private List<String> mAddress = new ArrayList<>();
     private double mLatitude;
     private double mLongitude;
-    private ArrayList<String> mCategories = new ArrayList<>();
+    private List<String> mCategories = new ArrayList<>();
 
     public Restaurant(String name, String phone, String website,
                       double rating, String imageUrl, ArrayList<String> address,
@@ -47,12 +52,7 @@ public class Restaurant {
         return mImageUrl;
     }
 
-//    public String getLargeImageUrl(String imageUrl) {
-//        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
-//        return largeImageUrl;
-//    }
-
-    public ArrayList<String> getAddress() {
+    public List<String> getAddress() {
         return mAddress;
     }
 
@@ -64,8 +64,9 @@ public class Restaurant {
         return mLongitude;
     }
 
-    public ArrayList<String> getCategories() {
+    public List<String> getCategories() {
         return mCategories;
     }
+
 }
 
