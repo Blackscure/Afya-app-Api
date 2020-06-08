@@ -1,14 +1,12 @@
 package com.buyahi.afya_app;
 
+
 import java.util.List;
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-public class Business {
-
-    @SerializedName("rating")
-    @Expose
-    private Double rating;
+import com.google.gson.annotations.SerializedName;import org.parceler.Parcel;@Parcel
+public class Business {    @SerializedName("rating")
+@Expose
+private Float rating;
     @SerializedName("price")
     @Expose
     private String price;
@@ -50,16 +48,12 @@ public class Business {
     private Double distance;
     @SerializedName("transactions")
     @Expose
-    private List<String> transactions = null;
-
-    /**
+    private List<String> transactions = null;    /**
      * No args constructor for use in serialization
      *
      */
     public Business() {
-    }
-
-    /**
+    }    /**
      *
      * @param distance
      * @param rating
@@ -77,7 +71,7 @@ public class Business {
      * @param id
      * @param categories
      */
-    public Business(Double rating, String price, String phone, String id, String alias, Boolean isClosed, List<Category> categories, Integer reviewCount, String name, String url, Coordinates coordinates, String imageUrl, Location location, Double distance, List<String> transactions) {
+    public Business(Float rating, String price, String phone, String id, String alias, Boolean isClosed, List<Category> categories, Integer reviewCount, String name, String url, Coordinates coordinates, String imageUrl, Location location, Double distance, List<String> transactions) {
         super();
         this.rating = rating;
         this.price = price;
@@ -94,126 +88,65 @@ public class Business {
         this.location = location;
         this.distance = distance;
         this.transactions = transactions;
-    }
-
-    public Double  getRating() {
+    }    public Float getRating() {
         return rating;
-    }
-
-    public void setRating(Double rating) {
+    }    public void setRating(Float rating) {
         this.rating = rating;
-    }
-
-    public String getPrice() {
+    }    public String getPrice() {
         return price;
-    }
-
-    public void setPrice(String price) {
+    }    public void setPrice(String price) {
         this.price = price;
-    }
-
-    public String getPhone() {
+    }    public String getPhone() {
         return phone;
-    }
-
-    public void setPhone(String phone) {
+    }    public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getId() {
+    }    public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
+    }    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getAlias() {
+    }    public String getAlias() {
         return alias;
-    }
-
-    public void setAlias(String alias) {
+    }    public void setAlias(String alias) {
         this.alias = alias;
-    }
-
-    public Boolean getIsClosed() {
+    }    public Boolean getIsClosed() {
         return isClosed;
-    }
-
-    public void setIsClosed(Boolean isClosed) {
+    }    public void setIsClosed(Boolean isClosed) {
         this.isClosed = isClosed;
-    }
-
-    public List<Category> getCategories() {
+    }    public List<Category> getCategories() {
         return categories;
-    }
-
-    public void setCategories(List<Category> categories) {
+    }    public void setCategories(List<Category> categories) {
         this.categories = categories;
-    }
-
-    public Integer getReviewCount() {
+    }    public Integer getReviewCount() {
         return reviewCount;
-    }
-
-    public void setReviewCount(Integer reviewCount) {
+    }    public void setReviewCount(Integer reviewCount) {
         this.reviewCount = reviewCount;
-    }
-
-    public String getName() {
+    }    public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
+    }    public void setName(String name) {
         this.name = name;
-    }
-
-    public String getUrl() {
+    }    public String getUrl() {
         return url;
-    }
-
-    public void setUrl(String url) {
+    }    public void setUrl(String url) {
         this.url = url;
-    }
-
-    public Coordinates getCoordinates() {
+    }    public Coordinates getCoordinates() {
         return coordinates;
-    }
-
-    public void setCoordinates(Coordinates coordinates) {
+    }    public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
-    }
-
-    public String getImageUrl() {
+    }    public String getImageUrl() {
         return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
+    }    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-    }
-
-    public Location getLocation() {
+    }    public Location getLocation() {
         return location;
-    }
-
-    public void setLocation(Location location) {
+    }    public void setLocation(Location location) {
         this.location = location;
-    }
-
-    public Double getDistance() {
+    }    public Double getDistance() {
         return distance;
-    }
-
-    public void setDistance(Double distance) {
+    }    public void setDistance(Double distance) {
         this.distance = distance;
-    }
-
-    public List<String> getTransactions() {
+    }    public List<String> getTransactions() {
         return transactions;
-    }
-
-    public void setTransactions(List<String> transactions) {
+    }    public void setTransactions(List<String> transactions) {
         this.transactions = transactions;
     }
-
 }

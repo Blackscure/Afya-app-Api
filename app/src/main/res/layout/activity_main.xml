@@ -16,11 +16,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Gym App"
+        android:text="@string/my_restaurants"
         android:layout_marginTop="35dp"
         android:id="@+id/appNameTextView"
         android:textColor="@color/colorTextIcons"
-        android:textSize="70sp"
+        android:textSize="40sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold" />
@@ -33,13 +33,13 @@
 
         android:layout_marginBottom="10dp"
         android:padding="5dp"
-        android:hint="Enter Zip Code"
+        android:hint="@string/enter_zip_code"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find Gym"
+        android:text="@string/find_gym"
         android:id="@+id/findRestaurantsButton"
 
         android:layout_alignParentBottom="true"

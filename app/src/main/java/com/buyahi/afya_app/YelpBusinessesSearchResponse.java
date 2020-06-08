@@ -4,7 +4,8 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class YelpBusinessesSerchResponse {
+
+public class YelpBusinessesSearchResponse {
 
     @SerializedName("total")
     @Expose
@@ -20,7 +21,7 @@ public class YelpBusinessesSerchResponse {
      * No args constructor for use in serialization
      *
      */
-    public YelpBusinessesSerchResponse() {
+    public YelpBusinessesSearchResponse() {
     }
 
     /**
@@ -29,7 +30,7 @@ public class YelpBusinessesSerchResponse {
      * @param region
      * @param businesses
      */
-    public YelpBusinessesSerchResponse(Integer total, List<Business> businesses, Region region) {
+    public YelpBusinessesSearchResponse(Integer total, List<Business> businesses, Region region) {
         super();
         this.total = total;
         this.businesses = businesses;
